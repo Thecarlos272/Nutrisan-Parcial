@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="nutrisanPU" transaction-type="JTA">
+     <jta-data-source>java:/dbprueba</jta-data-source>
+     <class>pe.edu.upc.nutrisan.models.entities.CasaDeEstudios</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Citas</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Curriculum</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Especialidad</class>
+     <class>pe.edu.upc.nutrisan.models.entities.GradoAcademico</class>
+     <class>pe.edu.upc.nutrisan.models.entities.HistorialPlan</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Horario</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Nutricionista</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Paciente</class>
+     <class>pe.edu.upc.nutrisan.models.entities.Plan</class>
+     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+ 	<properties>
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+		</properties>
+	</persistence-unit>
+</persistence>
