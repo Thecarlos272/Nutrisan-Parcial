@@ -56,8 +56,8 @@ public class NutricionistaDaoImpl implements INutricionistaDao{
 	public List<Nutricionista> find(Nutricionista nut) {
 		List<Nutricionista> lista = new ArrayList<Nutricionista>();
 		try {
-			Query q =em.createQuery("from Nutricionista n where n.dni like ?1");
-			q.setParameter(1,"%"+nut.getDni()+"%");
+			Query q =em.createQuery("from Nutricionista n where n.nombre like ?1");
+			q.setParameter(1,"%"+nut.getNombre()+"%");
 			lista=(List<Nutricionista>)q.getResultList();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
