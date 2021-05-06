@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Paciente:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Paciente</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="dni" value="Código" styleClass="control-label" />
+			<p:inputText autocomplete="off" id="dni" styleClass="form-control"
+				value="#{pacienteController.paciente.dni}" required="false" />
+
+
+			<h:outputLabel for="namePaciente" value="Paciente"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="namePaciente"
+				styleClass="form-control"
+				value="#{pacienteController.paciente.nombre}" maxlength="30"
+				required="true" />
+
+
+			<h:outputLabel for="apellido" value="Apellido"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="apellido"
+				styleClass="form-control"
+				value="#{pacienteController.paciente.apellido}" maxlength="30"
+				required="true" />
+
+
+			<h:outputLabel for="password" value="password"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="password"
+				styleClass="form-control"
+				value="#{pacienteController.paciente.password}" maxlength="30"
+				required="true" />
+
+
+			<h:outputLabel for="email" value="email" styleClass="control-label" />
+			<p:inputText autocomplete="off" id="email" styleClass="form-control"
+				value="#{pacienteController.paciente.email}" maxlength="30"
+				required="true" />
+
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{pacienteController.insert()}"
+				styleClass="btn btn-primary" update="@form"
+				action="listpaciente?faces-redirect=true" />
+
+
+			<p:commandButton value="Cancelar"
+				action="listpaciente?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

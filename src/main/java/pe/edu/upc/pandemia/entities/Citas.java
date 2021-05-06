@@ -52,9 +52,6 @@ public class Citas {
   @JoinColumn(name="hora_fin",nullable = false)
   private Horario hora_fin;
   
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "paciente", nullable = false)
-  private Paciente paciente;
 
 public Integer getCita_id() {
 	return cita_id;
@@ -112,13 +109,6 @@ public void setHora_fin(Horario hora_fin) {
 	this.hora_fin = hora_fin;
 }
 
-public Paciente getPaciente() {
-	return paciente;
-}
-
-public void setPaciente(Paciente paciente) {
-	this.paciente = paciente;
-}
 
  
 

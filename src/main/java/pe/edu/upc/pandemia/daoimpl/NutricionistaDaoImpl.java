@@ -31,7 +31,7 @@ public class NutricionistaDaoImpl implements INutricionistaDao{
 	public List<Nutricionista> list() {
 		List<Nutricionista> lista=new ArrayList<Nutricionista>();
 		try {
-			Query q = em.createQuery("from Paciente p");
+			Query q = em.createQuery("from Nutricionista p");
 			lista=(List<Nutricionista>)q.getResultList();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -1,6 +1,5 @@
 package pe.edu.upc.pandemia.controller;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +14,13 @@ import pe.edu.upc.pandemia.service.INutricionistaService;
 @Named
 @RequestScoped
 public class NutricionistaController {
+	
 	@Inject
-	private INutricionistaService nService;
-	
-	//variables
+	private INutricionistaService nServicie;
 	private Nutricionista nutricionista;
-	
 	List<Nutricionista> listaNutricionistas;
+
 	
-	//constructores
 	@PostConstruct
 	public void init() {
 		this.nutricionista = new Nutricionista();
@@ -31,67 +28,85 @@ public class NutricionistaController {
 		this.list();
 	}
 
-	//metodos especializados
-	
 	public String newNutricionista() {
 		this.setNutricionista(new Nutricionista());
 		return "nutricionista.xhtml";
 	}
-	
+
 	public void insert() {
 		try {
-			nService.insert(nutricionista);
+
+			nServicie.insert(nutricionista);
 		} catch (Exception e) {
-			System.out.println("Error al insertar en el controller de nutricionista");
+			System.out.print("Error al insertar en el controoller de region");
 		}
 	}
 	
 	public void list() {
 		try {
-			listaNutricionistas = nService.list();
+			listaNutricionistas = nServicie.list();
 		} catch (Exception e) {
-			System.out.println("Error al listar en el controller de nutricionista");
+			System.out.print("Error al listar en el controller");
 		}
 	}
 	
-	public void delet(Nutricionista nu) {
+	public void delet(Nutricionista re) {
 		try {
-			nService.delete(nu.getDni());
+			nServicie.delete(re.getDni());
 			this.list();
 		} catch (Exception e) {
-			System.out.println("Error al eliminar en el controller de nutricionista");
-		}
-	}
-	
-	public void find() {
-		try {
-			if (nutricionista.getDni()==0) {
-				this.list();
-			} else {
-				listaNutricionistas = this.nService.find(this.getNutricionista());
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.print("Error al listar en el controller");
 		}
 	}
 	
 	
-	//get y set
-	public INutricionistaService getnService() {
-		return nService;
-	}
-
-	public void setnService(INutricionistaService nService) {
-		this.nService = nService;
-	}
-
+	
 	public Nutricionista getNutricionista() {
 		return nutricionista;
 	}
 
+
 	public void setNutricionista(Nutricionista nutricionista) {
 		this.nutricionista = nutricionista;
 	}
+
+
+	public List<Nutricionista> getListaNutricionistas() {
+		return listaNutricionistas;
+	}
+
+
+	public void setListaNutricionistas(List<Nutricionista> listaNutricionistas) {
+		this.listaNutricionistas = listaNutricionistas;
+	}
 	
+	public void findByName() {
+
+		try {
+
+			if (nutricionista.getNombre().isEmpty()) {
+
+				this.list();
+
+			} else {
+
+				listaNutricionistas = this.nServicie.find(this.getNutricionista());
+
+			}
+
+		} catch (Exception e) {
+
+			System.out.println(e.getMessage());
+
+		}
+
+	}
+
+	public void clean() {
+
+		this.init();
+
+	}
 }
 
+	

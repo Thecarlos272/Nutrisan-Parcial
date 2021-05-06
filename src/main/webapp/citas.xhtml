@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Citas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Registro de Citas</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="date" value="Fecha" styleClass="control-label" />
+			<p:datePicker id="button" value="#{citasController.cita.fecha}"
+				showIcon="true" />
+
+
+			<h:outputLabel for="horainicio" value="Hora inicio"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="horainicio"
+				styleClass="form-control"
+				value="#{citasController.cita.hora_Inicio}" maxlength="30"
+				required="true" />
+
+			<h:outputLabel for="horafinal" value="Hora final"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="horafinal"
+				styleClass="form-control" value="#{citasController.cita.hora_fin}"
+				maxlength="30" required="true" />
+
+
+			<h:outputLabel for="Resena" value="Resena" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="Resena" styleClass="form-control"
+				value="#{citasController.cita.recomendacion}" maxlength="30"
+				required="true" />
+
+			<p:outputLabel for="cboNutricionista" value="Nutricionista" />
+			<p:selectOneMenu id="cboNutricionista"
+				value="#{citasController.cita.nutricionista_Id}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems
+					value="#{nutricionistaController.listaNutricionistas}" var="r"
+					itemLabel="#{r.nombre}" itemValue="#{r}" />
+			</p:selectOneMenu>
+			<br />
+
+			<p:outputLabel for="cboPaciente" value="Paciente" />
+			<p:selectOneMenu id="cboPaciente"
+				value="#{citasController.cita.paciente_Id}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{pacienteController.listaPacientes}" var="r"
+					itemLabel="#{r.nombre}" itemValue="#{r}" />
+			</p:selectOneMenu>
+			<br />
+
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{citasController.insert()}"
+				styleClass="btn btn-primary" update="@form"
+				action="listCita?faces-redirect=true" />
+
+
+			<p:commandButton value="Cancelar"
+				action="listCita?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

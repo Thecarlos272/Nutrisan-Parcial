@@ -36,6 +36,7 @@ public class PacienteController {
 		return "paciente.xhtml";
 	}
 	
+	
 	public void insert() {
 		try {
 			pService.insert(paciente);
@@ -51,8 +52,7 @@ public class PacienteController {
 			System.out.println("Error al listar en el controller de paciente");
 		}
 	}
-	
-	//get y set
+
 	public IPacienteService getpService() {
 		return pService;
 	}
@@ -68,4 +68,15 @@ public class PacienteController {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
+
+	public List<Paciente> getListaPacientes() {
+		return listaPacientes;
+	}
+
+	public void setListaPacientes(List<Paciente> listaPacientes) {
+		this.listaPacientes = listaPacientes;
+	}
+	
+	//get y set
+
 }
