@@ -16,8 +16,6 @@
 		<class>pe.edu.upc.pandemia.entities.Nutricionista</class>
 		<class>pe.edu.upc.pandemia.entities.Paciente</class>
 		<class>pe.edu.upc.pandemia.entities.Plan</class>
-		<class>pe.edu.upc.pandemia.entities.Province</class>
-		<class>pe.edu.upc.pandemia.entities.Region</class>
 
 		<properties>
 			<property
