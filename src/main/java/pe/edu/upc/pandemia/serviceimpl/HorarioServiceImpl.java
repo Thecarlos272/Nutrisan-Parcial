@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.pandemia.dao.IHorarioDao;
-import pe.edu.upc.pandemia.dao.IProvinceDao;
 import pe.edu.upc.pandemia.entities.Horario;
 import pe.edu.upc.pandemia.service.IHorarioService;
 

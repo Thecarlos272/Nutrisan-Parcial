@@ -39,12 +39,46 @@ public class Horario {
 	@Temporal(TemporalType.DATE)
 	private Date hora_fin;
 
+	//get y set
+	public Integer getId() {
+		return id;
+	}
 
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 
+	public Nutricionista getDni() {
+		return dni;
+	}
 
-	
-	
+
+	public void setDni(Nutricionista dni) {
+		this.dni = dni;
+	}
+
+
+	public Date getHora_inicio() {
+		return hora_inicio;
+	}
+
+
+	public void setHora_inicio(Date hora_inicio) {
+		this.hora_inicio = hora_inicio;
+	}
+
+
+	public Date getHora_fin() {
+		return hora_fin;
+	}
+
+
+	public void setHora_fin(Date hora_fin) {
+		this.hora_fin = hora_fin;
+	}
+
+
 	
 }
